@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Specie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Storage::deleteDirectory('pets');
+        Storage::makeDirectory('pets');
+        $this->call(UserSeeder::class);
+        $this->call(SpecieSeeder::class);
     }
 }

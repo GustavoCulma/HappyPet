@@ -16,63 +16,77 @@
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
 
                 <form class="w-full max-w-lg">
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                for="grid-first-name">
-                                Nombre Mascota
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border  focus:bg-white"
-                                id="grid-first-name" type="text" placeholder="Jane">
-
-                        </div>
-                        <div class="w-full md:w-1/2 px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                for="grid-last-name">
-                                Raza
-                            </label>
-                            <input
-                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe">
-                        </div>
-
-                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                for="grid-first-name">
-                                Fecha de Nacimiento
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border  focus:bg-white"
-                                id="grid-first-name" type="text" placeholder="Jane">
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-jet-label for="Nombre" value="{{ __('Nombre*') }}" />
+                            <input type="text" name="first_name" id="first_name" autocomplete="given-name"
+                                class="mt-1 focus:ring-indigo-200 focus:border-indigo-200 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 
                         </div>
 
-                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                for="grid-first-name">
-                                Nombre humano
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border  focus:bg-white"
-                                id="grid-first-name" type="text" placeholder="Jane">
-                            < </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-6">
-                            <label class="text-gray-600 font-light">Default size Input with focus primary
-                                outline</label>
-                            <input type='text' placeholder="Enter your input here"
-                                class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-jet-label for="TipoAnimal" value="{{ __('Tipo Animal*') }}" />
+                            <select id="country" name="country" autocomplete="country"
+                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-200 focus:border-indigo-200 sm:text-sm">
+                                <option>Perro</option>
+                                <option>Gato</option>
+                                <option>Tortuga</option>
+                                <option>Hamster</option>
+                                <option>Caballo</option>
+                            </select>
 
                         </div>
 
-                </form>
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-jet-label for="Raza" value="{{ __('Raza*') }}" />
+                            <select id="country" name="country" autocomplete="country"
+                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-200 focus:border-indigo-200 sm:text-sm">
+                                <option>Perro</option>
+                                <option>Gato</option>
+                                <option>Tortuga</option>
+                                <option>Hamster</option>
+                                <option>Caballo</option>
+                            </select>
+                        </div>
 
-                <div class="text-center pt-12 pb-12">
-                    <p>Don't have an account? <a href="register.html" class="underline font-semibold">Register here.</a>
-                    </p>
-                </div>
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-jet-label for="FechaNacimiento" value="{{ __('Fecha Nacimiento*') }}" />
+                            <input type="text" name="first_name" id="first_name" autocomplete="given-name"
+                                class="mt-1 focus:ring-indigo-200 focus:border-indigo-200 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-jet-label for="NombreHumano" value="{{ __('Nombre Humano*') }}" />
+                            <input type="text" name="last_name" id="last_name" autocomplete="family-name"
+                                class="mt-1 focus:ring-indigo-200 focus:border-indigo-200 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+
+                        <div class="col-span-6">
+                            <x-jet-label for="Descripción" value="{{ __('Descripción*') }}" />
+                            <textarea class="form-control w-full" rows="6">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="py-3">
+                        <button type="submit"
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-200">
+                            Guardar
+                        </button>
+                        <button type="submit"
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-200">
+                            Cancelar
+                        </button>
+                    </div>
             </div>
+
+
+            </form>
+
 
         </div>
 
-
     </div>
+
+
+</div>
 </div>

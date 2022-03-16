@@ -5,7 +5,7 @@
                 <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
                     <div class="md:w-1/3 xl:w-1/3 p-6 flex flex-col">
-                        <a href="#">
+                        <a href="{{ route('mascotas') }}">
                             <img class="hover:grow hover:shadow-lg" src="https://source.unsplash.com/IXUM4cJynP0">
                             <div class="pt-3 flex items-center justify-between">
                                 <p class="text-center"><B>Mascotas</B></p>
