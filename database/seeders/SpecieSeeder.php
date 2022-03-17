@@ -15,10 +15,15 @@ class SpecieSeeder extends Seeder
      */
     public function run()
     {
-        Specie::create(['name'=>'Perro']);
-        Specie::create(['name'=>'Gato']);
-        Specie::create(['name'=>'Tortuga']);
-        Specie::create(['name'=>'Hamster']);
-        Specie::create(['name'=>'Caballo']);
+        $species =[
+            ['name'=>'Perro'],
+            ['name'=>'Gato'],
+            ['name'=>'Tortuga'],
+            ['name'=>'Hamster'],
+            ['name'=>'Caballo'],
+        ];
+        foreach ($species as $specie) {
+            $specie= Specie::create($specie);
+        }
     }
 }

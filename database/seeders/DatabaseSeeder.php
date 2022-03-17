@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('pets');
         $this->call(UserSeeder::class);
         $this->call(SpecieSeeder::class);
+        $this->call(RaceSeeder::class);
     }
 }

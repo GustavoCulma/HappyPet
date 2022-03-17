@@ -8,7 +8,6 @@
 
         <!-- Login Section -->
         <div class="w-full md:w-1/2 flex flex-col">
-
             <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
                 <p class="text-4xl"><b>Mascota</b></p>
             </div>
@@ -26,28 +25,27 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-jet-label for="TipoAnimal" value="{{ __('Tipo Animal*') }}" />
-                            <select id="country" name="country" autocomplete="country"
-                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-200 focus:border-indigo-200 sm:text-sm">
-                                <option>Perro</option>
-                                <option>Gato</option>
-                                <option>Tortuga</option>
-                                <option>Hamster</option>
-                                <option>Caballo</option>
+                            <select
+                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-200 focus:border-indigo-200 sm:text-sm"
+                                wire:model=selectedSpecie>
+                                @foreach ($species as $specie)
+                                    <option value="{{ $specie->id }}">{{ $specie->name }}</option>
+                                @endforeach
                             </select>
 
                         </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-jet-label for="Raza" value="{{ __('Raza*') }}" />
-                            <select id="country" name="country" autocomplete="country"
-                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-200 focus:border-indigo-200 sm:text-sm">
-                                <option>Perro</option>
-                                <option>Gato</option>
-                                <option>Tortuga</option>
-                                <option>Hamster</option>
-                                <option>Caballo</option>
-                            </select>
-                        </div>
+                        @if (!is_null($races))
+                            <div class="col-span-6 sm:col-span-3">
+                                <x-jet-label for="Raza" value="{{ __('Raza*') }}" />
+                                <select
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-200 focus:border-indigo-200 sm:text-sm"
+                                    wire:model=selectedRace>
+                                    @foreach ($races as $race)
+                                        <option value="{{ $race->id }}">{{ $race->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @endif
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-jet-label for="FechaNacimiento" value="{{ __('Fecha Nacimiento*') }}" />
